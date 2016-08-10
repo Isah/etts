@@ -1,0 +1,8 @@
+WEB-INF/
+jquery-1.10.2/
+.settings/
+*.class
+.classpath
+.project
+.jar
+.zip

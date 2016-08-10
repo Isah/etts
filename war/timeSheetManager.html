@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="managesheet.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".cts").addClass("activate");
+  //the overlay div
+  $('.shell_three tbody tr').click(function(){
+    $(".checkTimeSheet").show();
+    $(".ts_dialog").hide();
+    $('.overlay').fadeIn();
+  });
+  $('.close-image').click(function(){
+    $('.overlay').fadeOut();
+  });
+
+  //timesheet divs
+  $('.cts').click(function(){
+    $(".checkTimeSheet").hide();
+    $(".ts_dialog").show();
+    $('.overlay').fadeIn();
+  });
+
+  $('.new_ts').click(function(){
+    $(".pts").removeClass("activate2");
+    $(".ats").removeClass("activate");
+    $(".report").removeClass("activate2");
+
+    $('.shell_two').hide();
+    $('.shell_three').hide();
+    $('.shell_four').hide();
+    $('.shell_one').show();
+    $('.overlay').fadeOut();
+  });
+
+   $('.cancel_dialog').click(function(){
+    $('.overlay').fadeOut();
+  });
+
+
+  $('.ats').click(function(){
+    $(this).addClass("activate2");
+    $(".cts").removeClass("activate");
+    $(".pts").removeClass("activate2");
+    $(".report").removeClass("activate2");
+
+    $('.shell_one').hide();
+    $('.shell_three').hide();
+    $('.shell_four').hide();
+    $('.shell_two').show();
+  });
+
+  $('.pts').click(function(){
+    $(this).addClass("activate2");
+    $(".cts").removeClass("activate");
+    $(".ats").removeClass("activate2");
+    $(".report").removeClass("activate2");
+
+    $('.shell_one').hide();
+    $('.shell_two').hide();
+    $('.shell_four').hide();
+    $('.shell_three').show();
+  });
+
+  $('.report').click(function(){
+    $(this).addClass("activate2");
+    $(".cts").removeClass("activate");
+    $(".ats").removeClass("activate2");
+    $(".pts").removeClass("activate2");
+
+    $('.shell_one').hide();
+    $('.shell_two').hide();
+    $('.shell_three').hide();
+    $('.shell_four').show();
+  });
+
+  $('.submit_tab').click(function(){
+    $(this).addClass("activate3");
+    $(".new_timesheet_tab").removeClass("activate3");
+    
+    $('.timesheet_form').hide();
+    $('.div_manage_table').show();
+  });
+
+  $('.new_timesheet_tab').click(function(){
+    $(this).addClass("activate3");
+    $(".submit_tab").removeClass("activate3");
+    
+    $('.timesheet_form').show();
+    $('.div_manage_table').hide();
+  });
+
+
+
+  //current time sheet code
+  $(".tone").click(function(){
+    $(this).addClass("bactive");
+    $(".done").removeClass("bactive");
+    $(".fullday").hide();
+    $(".timesheetSubmit").show();
+  });
+
+  $(".done").click(function(){
+    $(this).addClass("bactive");
+    $(".tone").removeClass("bactive");
+    $(".timesheetSubmit").hide();
+    $(".fullday").show();
+  });
+
+});
+</script>
+</head>
+<body>
+<!--overlay-->
+  <div class="overlay">
+
+    <div class="ts_dialog">
+<div class="smallheader"><strong>New Timesheet</strong><img class="close-image" src="icon/cancel30 (1).png"></div>
+      <form>
+        <label>Enter Timesheet name</label><br>
+        <input type="text" name="" class="dialog_field"><br>
+        <input type="submit" value="create" class="new_ts"><input type="submit" value="cancel" class="cancel_dialog">
+      </form>
+    </div>
+
+    <div class="checkTimeSheet">
+        <div class="smallheader"><strong>Approve Time Sheet</strong><img class="close-image" src="icon/cancel30 (1).png"></div>
+        
+      <form>
+        <p>From: date -  To: date</p>
+      <table>
+          <thead>
+            <tr>
+                 <th>Day</th>
+                 <th>Client</th>
+                 <th>Service Code</th>
+                 <th>Section</th>
+                 <th>Billing State</th>
+                 <th>Time Worked</th>
+                 <th>Employee</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+                <td>Monday</td>
+                <td>15</td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+          </tr>
+          </tbody>
+      </table>
+      <div class="buttons">
+      <input type="submit" class="decline" value="Decline"><input type="submit" class="approve" value="Approve">
+      </div>
+    </form>
+    </div>
+  </div>
+
+
+  <!--start of the main staff-->
+
+<div class="wrapper">
+<div class="header"> Employee Time Tracking System</div>
+<div class="maincontent">
+	<div>
+<div class="ts_manager">
+    <div class="top">Manage Timesheets</div>
+<div class="shell">
+	<div class="list_one">
+	<ul class="list_ones">
+		<li class="cts">Timesheet List</li>
+		<li class="ats">Timesheets approved</li>
+		<li class="pts">Timesheets pending</li>
+    <li class="report">Report</li>
+	</ul>
+	</div>
+	
+	<div class="shell_one">
+		<div class="list_two">
+		<ul>
+			<li class="submit_tab">() timesheets</li>
+			<li class="new_timesheet_tab"> Add new timesheet</li>
+		</ul>
+		</div>
+		<div class="div_manage_table">
+		<table class="manage_table">
+          <thead>
+            <tr>
+                 <th>Day</th>
+                 <th>Client</th>
+                 <th>Client Location</th>
+                 <th>Service Code</th>
+                 <th>Section</th>
+                 <th>Billing State</th>
+                 <th>Time Worked</th>
+                 <th>Employee</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+                <td>Monday</td>
+                <td>15</td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+          </tr>
+          </tbody>	
+		</table>
+    <button class="s_ts_button">Submit Timesheet</button>
+	</div>
+  <div class="timesheet_form">
+          <form action="CreateTimeSheet" method="post">
+          <input type="hidden" value="timeSheet" name="sheet">
+          <div class="fieldGroup">
+            <label>Date</label>
+            <input type="date" name="clientName" placeholder="client">
+          </div>
+          
+      <div class="fieldGroup">
+        <label>Day</label> 
+        <select name="days">
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+            <option value="sunday">Sunday</option>
+        </select>
+      </div>
+      
+      <div class="fieldGroup">
+        <label>Client</label>
+        <input type="search" name="clientName" placeholder="client" required>
+      </div>
+      <div class="fieldGroup">
+        <label>Service Code</label>
+        <select name="serviceCode">
+                    <option value="Audit">AUD</option>
+                    <option value="Tax Consultancy">TAX</option>
+                    <option value="Accountancy">ACC</option>
+                    <option value="Administration">ADMIN</option>
+                    <option value="Management Consultancy">CON</option>
+                    <option value="No Work">IDLE</option>
+                    <option value="training Including Self">TRA</option>
+                </select>
+      </div>
+      <div class="fieldGroup">
+        <label>Section</label>
+        <input type="search" name="section" placeholder="section" required>
+      </div>
+      <div class="fieldGroup">
+        <label>Billing State</label>
+        <select name="billingState">
+                    <option value="billable">billable</option>
+                    <option value="non billable">non billable</option>
+                </select>
+      </div>
+      <div class="fieldGroup">
+        <label>Time Worked</label>
+        <input type="number" name="timeWorked" placeholder="time" required>
+      </div>
+      <div class="fieldGroup">
+        <label>Emloyee</label>
+        <input type="search" name="employeeName" placeholder="employee">
+      </div>
+      <div class="fieldGroup">
+        <input type="submit" value="Next day" name="add"><input type="submit" value="Save" name="save">
+      </div>
+      </form>
+  </div>
+	</div>
+	<div class="shell_two">
+          <div class="sbox">
+      <div class="search">
+          <input type="search" placeholder="Approved Time Sheets"><input type="submit" value=""> 
+      </div>
+       sort By: 
+          <select class="sort">
+            <option value="date">Date</option>
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+          </select>
+      </div>
+      <table class="pend_appr">
+          <thead>
+            <tr>
+                 <th>Employee</th>
+                 <th>Time Sheet</th>
+                 <th>Issue Date</th>
+                 <th>Approved By</th>
+                 <th>Approval Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+                <td>Monday</td>
+                <td>15</td>
+                <td>The speed of the show/reveal</td>
+                <td>The speed </td>
+                <td>The speed </td>
+          </tr>
+          
+          </tbody>
+      </table>
+  </div>
+	<div class="shell_three">
+          <div class="sbox">
+      <div class="search">
+          <input type="search" placeholder="Pending Time Sheets"><input type="submit" value=""> 
+      </div>
+       sort By: 
+          <select class="sort">
+            <option value="date">Date</option>
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+          </select>
+      </div>
+      <table class="pend_appr">
+          <thead>
+            <tr>
+                 <th>Employee</th>
+                 <th>Time Sheet</th>
+                 <th>Issue Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+                <td>Monday</td>
+                <td>15</td>
+                <td>The speed of the show/reveal</td>
+          </tr>
+          <tr>
+                <td>Monday</td>
+                <td>15</td>
+                <td>The speed of the show/reveal</td>
+          </tr>
+          <tr>
+                <td>Monday</td>
+                <td>15</td>
+                <td>The speed of the show/reveal</td>
+          </tr>
+          
+          </tbody>
+      </table>
+  </div>
+  <div class="shell_four">
+     <div class="sbox">
+      search By: 
+          <select class="search_by">
+            <option value="date">client</option>
+            <option value="ascending">employee</option>
+          </select>
+          <div class="search">
+            <input type="search" placeholder="Search"><input type="submit" value="" class="report_field"> 
+          </div>
+       From: <input type="date" class="from_date">  To: <input type="date" class="from_date">
+      </div> 
+       <table class="pend_appr">
+          <thead>
+            <tr>
+                 <th>Employee</th>
+                 <th>Client</th>
+                 <th>Day</th>
+                 <th>Service Code</th>
+                 <th>Section</th>
+                 <th>Billing State</th>
+                 <th>Time Worked</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+                <td>Monday</td>
+                <td>15</td>
+                <td>The speed of the show/reveal</td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+                <td>The speed </td>
+          </tr>
+          
+          </tbody>
+      </table>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="sidebar">
+  <div class="profile">
+        <div class="profileDetails">
+          <label>Partner</label><br>
+          <label>Bukenya Aaron</label>
+        </div>
+        <div class="profilePic"></div>
+      </div>
+  <ul class="menu">
+      <li class="userAccounts"><a href="#">Employee Accounts</a></li>
+      <li class="yearPlanner"><a href="#">Year Planner</a></li>
+      <li class="leave"><a href="#">Leave Application</a></li>
+      <li class="userAccounts"><a href="#">Employee Accounts</a></li>
+      <li class="yearPlanner"><a href="#">Year Planner</a></li>
+      <li class="leave"><a href="#">Leave Application</a></li>
+  </ul>
+</div>
+  
+</div>
+<div class="footer"></div>
+</div>
+</body>
+</html>
